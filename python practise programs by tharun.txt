@@ -1,0 +1,686 @@
+#p1
+Write a python function to add 'ing' at the end of a given string and return the new string.
+If the given string already ends with 'ing' then add 'ly'.
+If the length of the given string is less than 3, leave it unchanged.
+
+#PF-Prac-1
+def add_string(str1):
+  length = len(str1)
+  if length > 2:
+    if str1[-3:] == 'ing':
+      str1 += 'ly'
+    else:
+      str1 += 'ing'
+
+  
+  return str1
+
+str1="com"
+print(add_string(str1))
+-------------------------------------------------------------------------------------------------------------------
+#p2
+Write a python function which accepts a string containing a pattern of brackets and returns true if the pattern of brackets is correct. Otherwise it returns false.
+The string of brackets is correct if it satisfies the following conditions:
+1. Number of opening and closing brackets are equal.
+2. Pattern should not start with closing bracket and end with opening bracket.
+#PF-Prac-2
+
+def bracket_pattern(input_str):
+    return input_str.startswith('(') and (input_str.count('(')==input_str.count(')'))
+input_str="(())("
+print(bracket_pattern(input_str))
+--------------------------------------------------------------------------------------------------------------
+#pf3
+Write a python function to create and return a new dictionary from the given dictionary(item:price).
+Given the following input, create a new dictionary with elements having price more than 200.
+
+prices = {'ACME': 45.23,'AAPL': 612.78, 'IBM': 205.55,'HPQ': 37.20,'FB': 10.75}
+#PF-Prac-3
+def create_new_dictionary(prices):
+    return {key: value for key, value in prices.items() if value > 200}
+
+prices = { 'ACME': 45.23,'AAPL': 612.78,'IBM': 205.55,'HPQ': 37.20,'FB': 10.75}
+print(create_new_dictionary(prices))
+--------------------------------------------------------------------------------------------------------------------
+#pf4
+Given a list of numbers, write a python function which returns true if one of the first 4 elements in the list is 9. Otherwise it should return false.
+The length of the list can be less than 4 also.
+#PF-Prac-4
+def find_nine(nums):
+    return 9 in nums and nums.index(9)<4
+
+nums=[1,4,5,6]
+print(find_nine(nums))
+--------------------------------------------------------------------------------------------------------
+#pf5
+Write a python function which accepts a sentence and finds the number of letters and digits in the sentence.
+It should return a list in which the first value should be letter count and second value should be digit count. Ignore the spaces or any other special character in the sentence.
+
+#PF-Prac-5
+def count_digits_letters(sentence):
+    return [sum(c.isalpha() for c in sentence),sum(c.isdigit() for c in sentence)]
+
+sentence="Infosys Mysore 570027"
+print(count_digits_letters(sentence))
+--------------------------------------------------------------------------------------
+rite a python function which accepts a list of numbers and returns true, if 1, 2, 3 appears in sequence in the list.
+Otherwise, it should return false.
+#pf 6
+#PF-Prac-6
+def list123(nums):
+    return '123' in ''.join(map(str,nums))
+
+
+nums=[1,2,3,4,5]
+print(list123(nums))
+-------------------------------------------------------------------------------------------------------
+#pf 7
+Given two numbers, write a python function which returns true if first number is a seed of second number. Otherwise it returns false.
+A number X is said to be a seed of number Y, if multiplying X by its each digit equates to Y
+
+For example, 123 is a seed of 738 as 123*1*2*3 = 738.
+#PF-Prac-7
+"""
+import numpy
+def seed_no(number,ref_no):
+    return number*numpy.prod(list(map(int,list(str(number))))) == ref_no
+    
+number=123
+ref_no=738
+print(seed_no(number,ref_no))
+"""
+def seed_no(number,ref_no):
+    m = 1
+    for i in str(number):
+        m*=int(i)
+    return number*m == ref_no
+    
+number=123
+ref_no=738
+print(seed_no(number,ref_no))
+--------------------------------------------------------------------------------------------------------------------------------
+#pf 8
+Write a python function which accepts a list of strings containing details of deposits and withdrawals made in a bank account and returns the net amount in the account.
+Suppose the following input is supplied to the function
+["D:300","D:300","W:200","D:100"] where D means deposit and W means withdrawal,
+then the net amount in the account is 500.
+#PF-Prac-8
+'''
+import re
+def calculate_net_amount(trans_list):
+    W,D=[],[]
+    for i,s in enumerate(trans_list):
+        if re.search('^D',s) != None:D.append(trans_list[i][2:])
+        else:W.append(trans_list[i][2:])
+    return sum(map(int,D))-sum(map(int,W))
+trans_list=["D:300","D:200","W:200","D:100"]
+print(calculate_net_amount(trans_list))
+'''
+def calculate_net_amount(trans_list):
+    W,D=0,0
+    for i in trans_list:
+        temp = i.split(":")
+        if temp[0]=="D":
+            D+=int(temp[1])
+        else:
+            W+=int(temp[1])
+    return D-W
+
+trans_list=["D:300","D:200","W:200","D:100"]
+print(calculate_net_amount(trans_list))
+----------------------------------------------------------------------------------------------
+#pf 9
+Write a Python function which generates and returns a dictionary where the keys are numbers between 1 and n (both inclusive) and the values are square of keys.
+#PF-Prac-9
+def generate_dict(number):
+    new_dict={}
+    for x in range(1,number+1):
+        new_dict[x]=x**2
+    return new_dict
+
+number=20
+
+print(generate_dict(number))
+--------------------------------------------------------------------------------------------------------------------------
+#pf 10
+Write a Python function which accepts a string and returns a string made of the first 2 and the last 2 characters of the given string.
+If the string length is less than 2, return -1.
+
+Note: If the string length is equal to 2, consider the 2 characters to be the first as well as the last two characters.
+
+def string_both_ends(input_string):
+	#start writing your code here
+    if len(input_string)>1:
+        return input_string[0:2]+input_string[(len(input_string)-2)::]
+    else:return -1
+
+input_string="se"
+print(string_both_ends(input_string))
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#pf 11
+Write a python function which accepts a sentence and returns a list in which first value is the count of upper case letters and second value is the count of lower case letters in the sentence. Ignore spaces, numbers and other special characters if any.
+#PF-Prac-11
+def find_upper_and_lower(sentence):
+    U,L=0,0
+    for i in sentence:
+        if i.isupper():
+            U+=1
+        elif i.islower():
+            L+=1
+    return [U,L]
+
+sentence="Come Here"
+print(find_upper_and_lower(sentence))
+-----------------------------------------------------------------------------------------------------------
+#pf 12
+Write a python function to generate and return the list of all possible sentences created from the given lists of Subject, Verb and Object.
+Note: The sentence should contain only one subject, verb and object each.
+#PF-Prac-12
+def generate_sentences(subjects,verbs,objects):
+	#start writing your code here
+    return [z+' '+y+' '+x for z in subjects for y in verbs for x in objects]
+
+
+subjects=["I","You"]
+verbs=["love", "play"]
+objects=["Hockey","Football"]
+print(generate_sentences(subjects,verbs,objects))
+--------------------------------------------------------------------------------------
+#pf 13
+Write a python function which accepts three numbers and returns True if
+a. one of the three numbers is "close" to any one of the other numbers (differing from a number by at most 1), and
+
+b.Number that is left out is "far", differing from both other values by 2 or more.
+
+#PF-Prac-13
+def close_number(num1,num2,num3):
+    #start writing your code here
+    if abs(num1-num2)<=1 or abs(num2-num3)<=1 or abs(num1-num3)<=1:
+        if abs(num2-num1)>=2 or abs(num2-num3)>=2:
+            return True
+        return False
+    return False
+    
+print(close_number(5,4,2))
+----------------------------------------------------------------------------------------------
+#pf14
+Write a python function to find and display the five digit number in which the first digit is two more than the second, the second digit is two more than the third, the fourth digit is two less than the third, and the last digit is two more than the fourth. The sum of the third, fourth, and fifth digits equals the first. The sum of all the digits is 19.
+#PF-Tryout
+def find_five_digit():
+	#start writing your code here
+    pass
+
+find_five_digit()
+
+
+
+-------------------------------------------------------------------------------------
+pf15
+#PF-Prac-15
+def check_22(num_list):
+    return '22' in ''.join(map(str,num_list))
+print(check_22([3,2,5,1,2,1,2,2]))
+--------------------------------------------------------------
+#pf 16
+Write a Python function to rotate the list of elements by N positions. The function should return the rotated list.
+#PF-Prac-16
+def rotate_list(input_list,n):
+    #start writing your code here
+    for i in range(n):
+        input_list.insert(0,input_list.pop(-1))
+    return input_list
+
+input_list= [1,2,3,4,5,6]
+output_list=rotate_list(input_list,4)
+print(output_list)
+----------------------------------------------------------------------------
+#pf 17
+The following are the details of trains:
+Train No	Train Name	From	To	Running days	Sleeper Fare	AC Fare
+16453	Prasanti Express	SBC	BBS	'Mo', 'We', 'Th'	600	987
+25627	Karnataka Express	SBC	DEC	'Su', 'Tu'	1600	2500
+22642	Trivandrum SF Express	VSKP	TVM	'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'	800	1256
+22905	Okha Howrah Express	ST	KOAA	'We', 'Sa'	987	2879
+Represent each train's detail as a dictionary in the following format:
+train_dict={“train_no”:train number, “name”:train name, “from”:source, “to”:destination, “days_of_run”:list of running days, “sleeper_fare”:sleeper fare, “ac_fare”:AC fare }
+
+
+Create a list of trains, name it as train_list. Consider it to be a global variable.
+Refer the table below for the error messages to be returned for various conditions.
+Function	Condition	Error message
+get_train_name (train_no)	If train number is not valid	“Invalid Train_no”
+get_trains_for_day (day_of_run)	If day is not in proper format	“Invalid day”
+get_train_name(train_no)
+This function accepts the train number and returns the dict which contains the details of the train.
+get_trains_for_day(day_of_run)
+This function accepts a day and returns the list of numbers of the trains running on that day.
+get_total_fare(train_no,passenger_dict)
+This function accepts train_no and a dictionary of passenger details. The passenger_dict is of the following format:
+passenger_dict={ “sleeper”:5, “ac”,1 }
+This function returns the total fare based on the passenger details and train number.
+
+Estimated Time: 45 minutes
+Sample Input	Expected Output
+train_no = 25627
+day_of_run = “We”
+passenger_dict ={"sleeper":10, "ac":10}	Karnataka Express
+[16453, 22642, 22905]
+41000
+
+#PF-Prac-17
+train_list=[
+{"train_no":16453,"name":"Prasanti Express","from":"SBC","to":"BBS","days_of_run":['Mo','We','Th'],"sleeper_fare":600,"ac_fare": 987},
+{"train_no":25627,"name":"Karnataka Express","from":"SBC","to":"DEC","days_of_run":['Su','Tu'],"sleeper_fare":1600,"ac_fare": 2500},
+{"train_no":22642,"name":"Trivandrum SF Express","from":"VSKP","to":"TVM","days_of_run":['Mo','Tu','We','Th','Fr','Sa'],"sleeper_fare":800,"ac_fare": 1256},
+{"train_no":22905,"name":"Okha Howrah Express","from":"ST","to":"KOAA","days_of_run":['We','Sa'],"sleeper_fare":987,"ac_fare": 2879}]
+
+def get_train_name (train_no):
+    for i in train_list:
+        if i['train_no']==train_no:
+            return i['name']
+    #start writing your code here
+
+def get_trains_for_day(day_of_run):
+    l=[]
+    for i in train_list:
+        if day_of_run in i['days_of_run']:
+            l.append(i['train_no'])
+    return l
+    #start writing your code here
+
+def get_total_fare(train_no,passenger_dict):
+    #start writing your code here
+    pass
+    
+print(get_train_name(25627))
+print(get_trains_for_day("Mo"))
+print(get_total_fare(22642,{"sleeper":5, "ac":1}))
+-----------------------------------------------------------------------------------------------
+#pf 18
+
+TechKnow is a computer technology training center. They need to automate their training schedule. For one complete course, there will be training in multiple modules.
+Assumptions:
+Saturday and Sunday are holidays
+Start day will always be a week day
+Write a python function which will generate the schedule for the complete course. It should print start date and end date for each module. The function can accept the list of modules, list which contains the duration of each module and start date in the form of day,month,year.
+Duration of each course will be less than 10 days. If duration of any one course is greater than or equal to 10, then display -1.
+
+----------------------------------------------
+#pf 19
+A server records the following information for every request in the log files:
+Timestamp,
+Service name (SELECT, INSERT, UPDATE or DELETE) of request,
+IP address,
+Id of the requestor and
+a unique number assigned to every service request
+
+For each request, two events are captured - BEGIN when the request started and END when the request ended. End event also captures the status (SUCCESS or FAILED) of the service.
+
+Sample data in the text file:
+ServiceTimestamp	Service
+Name	IpAddress	RequestorId	Request
+Number	Event	Status
+2016-08-09 23:09:10	INSERT	204.10.31.50	bob_gibson	R0001	BEGIN	
+2016-08-09 23:09:10	SELECT	204.12.31.53	mark_twain	R0005	BEGIN	
+2016-08-09 23:09:19	SELECT	204.12.31.53	mark_twain	R0005	END	SUCCESS
+2016-08-09 23:09:14	DELETE	101.71.99.13	joe_page	R0003	BEGIN	
+2016-08-09 23:09:11	INSERT	201.13.27.47	phil_huges	R0004	BEGIN	
+2016-08-09 23:09:16	INSERT	201.13.27.47	phil_huges	R0004	END	SUCCESS
+2016-08-09 23:09:14	DELETE	10.71.99.391	john_lindy	R0007	BEGIN	
+2016-08-09 23:09:17	DELETE	10.71.99.391	john_lindy	R0007	END	FAILED
+2016-08-09 23:09:10	INSERT	204.10.31.50	bob_gibson	R0001	END	SUCCESS
+2016-08-09 23:09:15	INSERT	202.13.27.56	george_tek	R0006	END	FAILED
+2016-08-09 23:09:13	UPDATE	10.25.67.155	nate_field	R0002	BEGIN	
+2016-08-09 23:09:11	INSERT	202.13.27.56	george_tek	R0006	BEGIN	
+2016-08-09 23:09:18	DELETE	101.71.99.13	joe_page	R0003	END	SUCCESS
+2016-08-09 23:09:17	UPDATE	10.25.67.155	nate_field	R0002	END	SUCCESS
+
+Write a python program to create a report in csv (Comma Separated Values) file format which provides service wise details like total number of requests, average, minimum and maximum response times for all successful transactions.
+Note: All the values are separated by a single tab in the input file.
+
+create_csv_report(): It accepts the input file path and the output file path. It should create a csv file format as given below.
+
+Expected CSV report for the sample data:
+Service, NoOfRequests, AvgResponseTime, MinResponseTime, MaxResponseTime
+SELECT,1,9.0,9,9
+INSERT,1,5.0,5,5
+UPDATE,1,4.0,4,4
+DELETE,1,4.0,4,4
+--------------------------------------------------------------------------------------
+#pf 20
+A Ducci sequence is a sequence of lists of integers. Given a starting list of integers, the next list in the sequence is formed by taking the absolute differences of neighboring integers in the previous list.
+Start List: [0,653,1854,4063]
+
+Ducci Sequence:[653,1201,2209,4063], [548,1008,1854,3410], ...........,[0,0,0,0]
+
+Assumption: The Ducci sequence ends with a list containing 0s and the starting list contains four elements.
+
+Write a python function that takes a starting list of integers and a number ‘n’ as input, and returns the nth element of the Ducci sequence.
+
+Sample Input	Expected Output
+test_list=[0,653,1854,4063]
+n = 1
+[548,1008,1854,3410]
+
+#PF-Prac-20
+def ducci_sequence(test_list,n):
+    for i in range(n+1):
+        test_list = [abs(test_list[1]-test_list[0]),abs(test_list[2]-test_list[1]),abs(test_list[3]-test_list[2]),abs(test_list[0]-test_list[3])]
+    
+    return test_list
+
+ducci_element=ducci_sequence([0, 653, 1854, 4063] , 1)
+print(ducci_element)
+-------------------------------------------------------------------------------------
+#pf 21
+Tom is working in a shop where he labels items. Each item is labelled with a number between num1 and num2(both inclusive). Since Tom is also a natural mathematician, he likes to observe patterns in numbers. Tom could observe that some of these label numbers are divisible by other label numbers.
+
+Write a Python function to find out those label numbers that are divisible by another label number and display how many such label numbers are there totally.
+
+Note:- Consider only the distinct label numbers. The list of those label numbers should be considered as a set.
+#not yet done
+#PF-Prac-21
+def check_numbers(num1,num2):
+    #start writing your code here
+    
+    return [num_list,count]
+
+num1=2
+num2=20
+print(check_numbers(num1, num2))
+------------------------------------------------------------------------------------------------------------
+#pf 22
+Write a python function to print the given number of diagonal lines of stars.
+Sample input: 5
+
+Expected output:
+*
+.*
+..*
+...*
+....*
+Note: Setting the end parameter of the print function to empty string prevents the issuing of the new line.
+Example: print(".",end="") will maintain the cursor in the same line after displaying "."
+#PF-Tryout
+def diagonal_stars(number):
+   #start writing your code here
+   for i in range(0,number):
+      print('.'*i,end='*\n')
+      
+
+number=6    
+diagonal_stars(number)
+---------------------------------------------------------------------------
+#pf 23
+Write a python function to find out whether a number is divisible by the sum of its digits. If so return True,else return False.
+Sample Input	Expected Output
+42	True
+66	False
+
+#PF-Prac-23
+def divisible_by_sum(number):
+    #start writing your code here
+    return number % sum(list(map(int,list(str(number)))))==0
+
+    
+number=42
+print(divisible_by_sum(number))
+---------------------------------------------------------------------------------
+#pf 24
+Given two positive integers. Write a python function to return the greatest common divisor of the given numbers.
+Sample Input	Expected Output
+14 and 35	7
+800 and 2800	400
+#PF-Prac-24
+def find_gcd(num1,num2):
+    return max([i for i in range(1,min(num1,num2)+1) if num1%i==0 and num2%i==0])
+
+
+num1=45
+num2=9
+print(find_gcd(num1,num2))
+----------------------------------------------------------------
+#pf 25
+Click to select question
+Question
+Solve It
+Write a python function that accepts a list of words and returns the list of integers representing the length of the corresponding words.
+
+Sample Input	Expected Output
+[cat, Come]	[3,4]
+
+#PF-Prac-25
+def list_of_count(word_list):
+    #start writing your code here
+    return [len(i) for i in word_list]
+
+word_list=["COme","here"]
+print(list_of_count(word_list))
+--------------------------------------------------------------------------------------
+#pf 26
+Given a string, write a python function to return True if the strings "mat" and "jet" appear the same number of times in the given string, else return False.
+Note: Perform case insensitive string comparison wherever necessary.
+
+Sample Input	Expected Output
+Jet on the Mat but mat is too long	False
+mat jet Jet Mat	True
+#PF-Prac-26
+def check_occurence(string):
+    return string.lower().count('jet') == string.lower().count('mat')
+        
+string="Jet on the Mat but mat is too long"
+print(check_occurence(string))
+-------------------------------------------------------------------------------------
+#pf 27
+#PF-Prac-27
+def check_for_ten(num1,num2):
+    #start writing your code here
+    return (num1 == 10 or num2 ==10) or (num1+num2==10)
+    
+print(check_for_ten(10,9))
+--------------------------------------------------------------------------------------
+#pf 28
+#PF-Tryout
+def sing_99_bottles():
+   for i in range(99,-1,-1):
+       print(str(i)+' '+'bottles of beer on the wall, '+str(i)+' bottles of beer.')
+       print('Take one down, pass it around, '+str((i-1))+' bottles of beer on the wall.')
+   
+sing_99_bottles()
+-----------------------------------------------------------------------------------
+#pf 29
+Given a list of numbers, write a python function to exchange the first n/2 elements of a list with the last n/2 elements. The function should return the new list.
+n represents the number of elements in the list. Assume that it will always be even.
+
+
+Sample Input	Expected Output
+[1,2,3,4,5,6,7,8,9,10]	[10,9,8,7,6,1,2,3,4,5]
+#PF-Prac-29
+def exchange_list(number_list):
+    #start writing your code here
+    return number_list[:-(len(number_list)//2+1):-1]+number_list[:len(number_list)//2]
+     
+number_list=[1,2,3,4,5,6]
+print(exchange_list(number_list))
+-----------------------------------------------------------------------------------------------------
+#pf 31
+Given a list of integers and a number. Write a python function to find and return the sum of the elements of the list.
+Note: Don't add the given number and also the numbers present before and after the given number in the list .
+Sample input	Expected output
+list=[1,2,3,4], number=2	4
+list=[1,2,2,3,5,4,2,2,1,2],number=2	5
+list=[1,7,3,4,1,7,10,5],number=7	9
+list=[1,2,1,2],number=2               0
+
+#PF-Prac-31
+def sum_of_elements(num_list,number):
+    l=[]
+    for i,x in enumerate(num_list):
+        if x==number:
+                if i!=0:
+                    l.append(num_list[i-1])
+                if i!=len(num_list)-1:
+                    l.append(num_list[i+1])
+    print(sum(num_list))
+    print(num_list.count(number))
+    print(sum(l))
+    result=sum(num_list) - num_list.count(number)*number - sum(l)
+    if result>0:
+        return result
+    else:return 0
+      
+num_list=[1, 2, 3, 2, 4, 5, 7, 2]
+number=2
+print(sum_of_elements(num_list, number))
+-------------------------------------------------------------------------------------
+#pf 32
+#PF-Prac-32
+import math
+def check_squares(number):
+    # for i in range(1,round(math.sqrt(number))):
+    #     for j in range(j,round(math.sqrt(number))):
+    #         if (i*i+j*j == number):
+    #             return True
+    # return False
+    return any([i*i+j*j == number for i in range(1,round(math.sqrt(number))) for j in range(i,round(math.sqrt(number)))])
+    
+
+number=68
+print(check_squares(number))
+--------------------------------------------------------------------------------------
+#pf 33
+Write a python function to identify and return the number name of a given number. The number should be in the range 1 to 1000. If the number is invalid, return -1.
+
+Example:
+
+Sample input	Expected output
+1	one
+15	fifteen
+45	forty five
+125	one hundred and twenty five
+999	nine hundred and ninety nine
+1000	one thousand
+1211	-1
+
+----------------------------------------------------------------------------
+#pf 34
+-----------------------------------
+#pf 35
+----------------------------------------
+#pf 36
+#PF-Prac-36
+def find_target_positions(input_string, target_word):
+    target_list=[]
+    #idx = input_string.split(" ")
+    idx = input_string
+    for i,x in enumerate(idx):
+        if x==target_word:
+            target_list.append(i)
+    return target_list
+
+
+
+def find_inverted_index(input_string):
+    target_dict={}
+    #Start writing your code here
+    tgtlst = input_string.split()
+    for k in tgtlst:
+        target_dict.update({k:find_target_positions(tgtlst,k)})
+    return target_dict
+    
+    
+input_string="we dont need no education we dont need no thought control no we dont"
+result_dict=find_inverted_index(input_string)
+print(result_dict)
+-----------------------------------------------------------------------------------
+#pf 37
+Complete given function such that it returns the sum of the elements in num_list where num_list is a list of numbers.
+Do not alter the statements already provided.
+#PF-Prac-37
+def sum_of_list(num_list): 
+    #Start writing your code here
+	#Do not alter the below line
+    lst = num_list
+    return lst[0] + sum_of_list(lst[1:])
+
+num_list=[44,23,77,11,89,3]
+result=sum_of_list(num_list)
+print("Sum of the elements:",result)
+----------------------------------------------------------------------------
+#pf 38
+Write a function build_index_grid(rows, columns) that, given a number of rows and columns, creates a list of lists of that shape that includes the 'row,column' of that location.
+
+For example, after the following code is executed: new_index_grid = build_index_grid(4,3)
+new_index_grid would contain:
+[['0,0', '0,1', '0,2'],
+['1,0', '1,1', '1,2'],
+['2,0', '2,1', '2,2'],
+['3,0', '3,1', '3,2']]
+Note that these are strings.
+
+After the following code is executed: small_index_grid = build_index_grid(1,1)
+small_index_grid would contain: [ ['0,0'] ]
+#PF-Prac-38
+def build_index_grid(rows, columns):
+    result_list=[]
+    for i in range(0,rows):
+        temp=[]
+        for j in range(0,columns):
+            temp.append(str(i)+","+str(j))
+        result_list.append(temp)
+
+    return result_list
+
+rows=4
+columns=3
+result=build_index_grid(rows,columns)
+print("Rows:",rows,"Columns:",columns)
+print("The matrix is:",result)
+for i in result:
+    print(i)
+--------------------------------------------------------------------
+#pf 39
+#PF-Prac-39
+def max_populated_state(cities_dict,state):
+    #start writing your code here
+    l,l1=[],[]
+    for i in cities_dict:
+        if i['State']== state:
+            l.append(i)
+    for i in l:
+        l1.append(i['Population'])
+    m=max(l1)
+    if l1.count(m)==1:
+        S=l1.index(m)
+        max_populated_city=l[S]['Name']
+    else:
+        pass
+    return max_populated_city
+    
+cities_dict = [
+ {'Name':'Vancouver','State':'WA','Population':161791},
+ {'Name':'Salem','State':'OR','Population':154637},
+ {'Name':'Seattle','State':'WA','Population':80885},
+ {'Name':'Bellingham','State':'WA','Population':608661},
+ {'Name':'Spokane','State':'WA','Population':208916},
+ {'Name':'Bellevue','State':'WA','Population':608660},
+ {'Name':'Portland','State':'OR','Population':583776}
+ ]
+state="WA"
+# print("The city details are:",cities_dict)
+# print("State:",state)
+output=max_populated_state(cities_dict,state)
+print("The highest populated city in the given state is:",output)
+----------------------------------------------------------------------------------------------
+#pf 46
+#PF-Tryout
+
+def doublePreceding (values):
+    if len(values) > 0:
+        lst = tuple(values)
+        for idx in range(1, len(values)):
+            values[idx] = 2 * lst[idx-1]
+        values[0]=0
+    return values
+    
+print(doublePreceding([3,8,2]))
