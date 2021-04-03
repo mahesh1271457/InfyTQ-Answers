@@ -1,0 +1,1336 @@
+2. Compare the two codes shown below and state the output if the input entered in 
+each case is -6?
+
+CODE 1
+import math
+num=int(input("Enter a factorial"))
+print(math.factorial(num))
+ 
+CODE 2
+num=int(input("Enter a factorial "))
+print(math.factorial(num))
+
+
+
+a) ValueError, NameError(A)
+b) AttributeError, ValueError
+c) NameError, TypeError
+d) TypeError, ValueError
+
+
+
+
+
+3.What is the output of the code shown below?
+
+def getStar(m):
+    if m<1 or m>12:
+        raise ValueError("useless")
+    print(m)
+getStar(6)
+
+a) ValueError
+b) useless
+c) 6(A)
+d) ValueError(“useless”)
+
+4. What is the output of the code  if the input  
+is 6?
+valid = False
+while not valid:
+    try:
+        n=int(input("Enter a number"))
+        while n%2==0:
+            print("Good")
+        valid = True
+    except ValueError:
+        print("star ")
+a) Good (printed once)
+b) No output
+c) star (printed once)
+d) Good (printed infinite number of times)
+
+
+5. What is the output of the code shown below?
+
+x=10
+y=8
+assert x>y, 
+a) Assertion Error
+b) 10 8
+c) No output(A)
+d) 108
+
+6. What is the output of the code shown below?
+
+def f(x):
+    yield x+1
+g=f(8)
+print(next(g))
+a) 8
+b) 9(A)
+c) 7
+d) Error
+
+7. What is the output of the code shown below?
+
+def f(x):
+    yield x+1
+    print("star")
+    yield x+2
+g=f(9)
+a) Error
+b) star
+c) star
+10
+12
+d) No output(A)
+
+8. What is the output of the code shown below?
+
+def f(x):
+    yield x+1
+    print("star")
+    yield x+2
+g=f(10)
+print(next(g))
+print(next(g))
+a) No output
+b) 11
+star(A)
+12
+c) 11
+star
+d) 11
+
+9. What is the output of the following code?
+
+def a():
+    try:
+        f(x, 4)
+    finally:
+        print('star f')
+    print('star f?')
+a()
+a) No output
+b) star f?
+c) error
+d) star f
+
+
+10. What is the output of the code shown?
+
+def f(x):
+    for i in range(5):
+        yield i
+g=f(8)
+print(list(g))
+a) [0, 1, 2, 3, 4](A)
+b) [1, 2, 3, 4, 5, 6, 7, 8]
+c) [1, 2, 3, 4, 5]
+d) [0, 1, 2, 3, 4, 5, 6, 7]
+
+11. The error displayed in the code shown below is:
+
+import itertools
+l1=(1, 2, 3)
+l2=[4, 5, 6]
+l=itertools.chain(l1, l2)
+print(next(l1))
+a) ‘list’ object is not iterator
+b) ‘tuple’ object is not iterator(A)
+c) ‘list’ object is iterator
+d) ‘tuple’ object is iterator
+
+12. Which of the following is not an exception handling keyword in 
+Python?
+a) try
+b) except
+c) accept
+d) finally
+
+13. What is the output of the code shown below?
+
+g = (i for i in range(5))
+type(g)
+a) class <’loop’>
+b) class <‘iteration’>
+c) class <’range’>
+d) class <’generator’>(A)
+
+
+14. Is the following code valid?
+
+try:
+    # something something
+except:
+    # oops something
+finally:
+    # please do something
+a) no, there is no such thing as finally
+b) no, finally cannot be used with except
+c) no, finally must come before except
+d) yes
+
+15. Is the following code valid?
+
+try:
+    # something something
+except:
+    # oops something
+else:
+    # please do something
+a) no, there is no such thing as else
+b) no, else cannot be used with except
+c) no, else must come before except
+d) yes
+
+16. Can one block of except statements handle multiple
+ exception?
+a) yes, like except TypeError, SyntaxError [,…].(A)
+b) yes, like except [TypeError, SyntaxError].
+c) no
+d) none of the mentioned
+
+17. When is the finally block executed?
+a) when there is no exception
+b) when there is an exception
+c) only if some condition that has been specified is satisfied
+d) always
+
+18. What is the output of the following code?
+
+def oops():
+    try:
+        return 1
+    finally:
+        return 2
+k = oops()
+print(k)
+a) 1
+b) 2
+c) 3
+d) error, there is more than one return statement in a single try-finally block
+
+
+
+19. What is the output of the following code?
+
+def oops():
+    try:
+        print(1)
+    finally:
+        print(2)
+oops()
+a) 1 2
+b) 1
+c) 2
+d) none of the mentioned
+View Answer
+
+20. What is the output of the following?
+
+try:
+    if '1' != 1:
+        raise "star"
+    else:
+        print("star has not occurred")
+except "star":
+    print ("star has occurred")
+a) star has occurred
+b) star has not occurred
+c) invalid code
+d) none of the mentioned
+
+21. What happens when ‘1’ == 1 is executed?
+a) we get a True
+b) we get a False(A)
+c) an TypeError occurs
+d) a ValueError occurs
+
+
+22.What is the output of the following code?
+
+class Alex:
+    def __init__(self):
+        self.a = 1
+        self.__b = 1
+ 
+    def display(self):
+        return self.__b
+obj = Alex()
+print(obj.a)
+a) The program has an error because there isn’t any function to return self.a
+b) The program has an error because b is private
+and display(self) is returning a private member
+
+c)The program runs fine and 1 is printed
+d)The program has an error as you can’t name a class member using __b
+
+23.What is the output of the following code?
+
+class Leesa:
+    def __init__(self):
+        self.a = 1
+        self.__b = 1
+ 
+    def display(self):
+        return self.__b
+ 
+obj = Leesa()
+#print(obj.__b)
+print(obj.display())
+
+a)The program has an error because there isn’t any function to return self.a
+b)The program has an error because b is private and display(self) is returning a private member
+c)The program has an error because b is private and hence can’t be printed(A)
+d)The program runs fine and 1 is printed
+
+24.Methods of a class that provide access to private 
+members of the class are called as ______ and ______
+a)getters/setters
+b)__repr__/__str__
+c)user-defined functions/in-built functions
+d)__init__/__del__
+
+25. Which of these is a private data field?
+
+def Stupid:
+def __init__(self):
+    __a = 1
+    self.__b = 1
+    self.__c__ = 1
+    __d__= 1
+
+a)__a
+b)__b
+c)__c__
+d)__d__
+
+26.What is the output of the following code?
+
+class Island:
+     def __init__(self):
+         self.a = 1
+         self.__b = 1
+ 
+     def get(self):
+         return self.__b
+ 
+obj = Island()
+print(obj.get())
+
+a)The program has an error because there isn’t any function to return self.a
+b)The program has an error because b is
+private and display(self) is returning a private member
+
+c)The program has an error because b is
+private and hence can’t be printed
+
+d)The program runs fine and 1 is printed
+
+27.What is the output for the following piece of code?
+
+class Dog:
+     def __init__(self):
+         self.a = 1
+         self.__b = 1
+     def get(self):
+         return self.__b
+obj = Dog()
+obj.a=45
+print(obj.a)
+
+a)The program runs properly and prints 45
+b)The program has an error because the value of
+members of a class can’t be changed from outside the class
+c)The program runs properly and prints 1
+d)The program has an error because the value of members
+outside a class can only be changed as self.a=45
+
+
+28. What is the output of the following code?
+
+class fruits:
+    def __init__(self):
+        self.price = 100
+        self.__bags = 5
+    def display(self):
+        print(self.__bags)
+obj=fruits()
+obj.display()
+a)The program has an error because display() is trying to print a private class member
+b)The program runs fine but nothing is printed
+c)The program runs fine and 5 is printed(A)
+d)The program has an error because display() can’t be accessed
+
+29. What is the output of the following code?
+ class student:
+    def __init__(self):
+        self.marks = 97
+        self.__cgpa = 8.7
+    def display(self):
+        print(self.marks)
+obj=student()
+print(obj.student__cgpa)
+a)The program runs fine and 8.7 is printed
+b)Error because private class members can’t be accessed
+c)Error because the proper syntax for name mangling hasn’t been implemented
+d)The program runs fine but nothing is printed
+
+
+30. Which of the following is false about protected class members?
+a)They begin with one underscore
+b)They can be accessed by subclasses
+c)They can be accessed by name mangling method
+d)They can be accessed within a class
+
+31. What is the output of the following piece of code?
+
+class objects:
+    def __init__(self):
+        self.colour = None
+        self._shape = "square" 
+ 
+    def display(self, s):
+        self._shape = s
+obj=objects()
+print(obj._objects_shape)
+a)The program runs fine because name mangling has been properly implemented
+b)Error because the member shape is a protected member(A)
+c)Error because the proper syntax for name mangling hasn’t been implemented
+d)Error because the member shape is a private member
+
+32.What is the output of the following piece of code?
+
+class A:
+    def __str__(self):
+        return '1'
+class B(A):
+    def __init__(self):
+        super().__init__()
+class C(B):
+    def __init__(self):
+        super().__init__()
+def main():
+    obj1 = B()
+    obj2 = A()
+    obj3 = C()
+    print(obj1, obj2,obj3)
+main()
+a)1 1 1(A)
+b)1 2 3
+c)‘1’ ‘1’ ‘1’
+d)An exception is thrown
+
+33. What is the output of the following piece of code?
+
+class star:
+    def __init__(self):
+        self.x = 1
+    def change(self):
+        self.x = 10
+class star_derived(Demo):
+    def change(self):
+        self.x=self.x+1
+        return self.x
+def main():
+    obj = star_derived()
+    print(obj.change())
+ 
+main()
+a)11
+b)2(A)
+c)1
+d)An exception is thrown
+
+34. A class in which one or more methods are only implemented to raise an exception is called an abstract class. True or False?
+a)True(A)
+b)False
+
+35. Overriding means changing behaviour of methods of derived class methods in the base class. Is the statement true or false?
+a)True
+b)False(A)
+
+36. What is the output of the following piece of code?
+
+class A:
+    def __repr__(self):
+        return "a"
+class B(A):
+    def __repr__(self):
+        return "b"
+class C(B):
+    def __repr__(self):
+        return "c"
+o1 = A()
+o2 = B()
+o3 = C()
+print(obj1, obj2, obj3)
+a)1 1 1
+b)a b c(A)
+c)‘1’ ‘1’ ‘1’
+d)An exception is thrown
+
+37. What is the output of the following piece of code?
+
+class A:
+    def __init__(self):
+        self.multiply(15)
+        print(self.i)
+ 
+    def multiply(self, i):
+        self.i = 4 * i;
+class B(A):
+    def __init__(self):
+        super().__init__()
+ 
+    def multiply(self, i):
+        self.i = 2 * i;
+obj = B()
+a)15
+b)60
+c)An exception is thrown
+d)30(A)
+
+
+38. What is the output of the following piece of code?
+
+class star:
+    def check(self):
+        return " star check "  
+    def display(self):
+        print(self.check())
+class star_Derived(star):
+    def check(self):
+        return " star derived check "
+star().display()
+star_Derived().display()
+a)star check star derived check(A)
+b)star check star check
+c)Derived’s check star’s check
+d)Syntax error
+
+39. What is the output of the following piece of code?
+
+class A:
+    def __init__(self):
+        self.multiply(15)
+    def multiply(self, i):
+        self.i = 4 * i;
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print(self.i)
+ 
+    def multiply(self, i):
+        self.i = 2 * i;
+obj = B()
+a)15
+b)30(A)
+c)An exception is thrown
+d)60
+
+40. What is the output of the following piece of code?
+class Joke:
+    def check(self):
+        return " Joke's check "  
+    def display(self):
+        print(self.check())
+class Joke_Derived(Joke):
+    def check(self):
+        return "  Joke Derived's check "
+Joke().display()
+Joke_Derived().display()
+a)Joke’s check Derived’s check
+b)Joke’s check Joke’s Derived check(A)
+c)Derived’s check Joke’s check
+d)Syntax error
+
+41. What is the output of the following piece of code?
+
+class star:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return 1
+    def __eq__(self, other):
+        return self.x * self.y == other.x * other.y
+obj1 = star(5, 2)
+obj2 = star(2, 5)
+print(obj1 == obj2)
+a)False
+b)1
+c)True(A)
+d)An exception is thrown
+
+42. What is the output of the following piece of code?
+class Alex:
+    def one(self):
+        return self.two()    	
+    def two(self):
+        return 'Alex'   
+class Bliss(Alex):
+    def two(self):
+        return 'Bliss'
+obj2=Bliss()
+print(obj2.two())
+
+a)Alex
+b)An exception is thrown
+c)Alex Bliss
+d)Bliss(A)
+
+43. What type of inheritance is illustrated in the following piece of code?
+
+class Leesa():
+    pass
+class star(Leesa):
+    pass
+class Anderson(star):
+    pass
+a)Multi-level inheritance(A)
+b)Multiple inheritance
+c)Hierarchical inheritance
+d)Single-level inheritance
+
+44. What does single-level inheritance mean?
+a)A subclass derives from a class which in turn derives from another class
+b)A single superclass inherits from multiple subclasses
+c)A single subclass derives from a single superclass(A)
+d)Multiple base classes inherit a single derived class
+
+45.What is the output of the following piece of code?
+
+class Fun:
+     def __init__(self):
+         self.__i = 1
+         self.j = 5
+ 
+     def display(self):
+         print(self.__i, self.j)
+class Joke(Fun):
+     def __init__(self):
+         super().__init__()
+         self.__i = 2
+         self.j = 7  
+c = Joke()
+c.display()
+a)2 7
+b)1 5
+c)1 7(A)
+d)2 5
+
+46.Which of the following statements isn’t true?
+a)A non-private method in a superclass can be overridden
+b)A derived class is a subset of superclass
+c)The value of a private variable in the superclass can be changed in the subclass(A)
+d)When invoking the constructor from a subclass, the constructor of superclass is automatically invoked
+
+47.What is the output of the following piece of code?
+
+class Alex:
+    def __init__(self,x):
+        self.x = x
+    def count(self,x):
+        self.x = self.x+1
+class Bliss(Alex):
+    def __init__(self, y=0):
+        Alex.__init__(self, 3)
+        self.y = y
+    def count(self):
+        self.y += 1     
+def main():
+    obj = Bliss()
+    obj.count()
+    print(obj.x, obj.y)
+main()
+a)3 0
+b)3 1(A)
+c)0 1
+d)An exception in thrown
+
+48. What is the output of the following piece of code when executed in the Python shell?
+
+>>> class A:
+	pass
+>>> class B(A):
+	pass
+>>> obj=B()
+>>> isinstance(obj,A)
+a)Error(A)
+b)False
+c)Wrong syntax for isinstance() method
+d)Invalid method for classes
+
+49. Which of the following statements is true?
+a)The __new__() method automatically invokes the __init__ method
+b)The __init__ method is defined in the object class
+c)The __eq(other) method is defined in the object class(A)
+d)The __repr__() method is defined in the object class
+
+50. Method issubclass() checks if a class is a subclass of another class. True or False?
+a)True(A)
+b)False
+
+51. What is the output of the following piece of code?
+
+
+class Canada:
+    def __init__(self):
+        self.__x = 1
+class Vancouver(Canada):
+    def display(self):
+        print(self.__x)
+def main():
+    obj = Vancouver()
+    obj.display()
+main()
+a)1
+b)0
+c)Error, invalid syntax for object declaration
+d)Error, private class member can’t be accessed in a subclass(A)
+
+52. What is the output of the following piece of code?
+
+class Parent:
+    def __init__(self):
+        self._x = 5       
+class Son(Parent):
+    def display(self):
+        print(self._x)
+def main():
+    obj = Son()
+    obj.display()
+main()
+a)Error, invalid syntax for object declaration
+b)Nothing is printed
+c)5(A)
+d)Error, private class member can’t be accessed in a subclass
+
+53. What is the output of the following piece of code?
+
+class Paul:
+    def __init__(self,x=3):
+        self._x = x        
+class Jhon(Paul):
+    def __init__(self):
+        super().__init__(5)
+    def display(self):
+        print(self._x)
+def main():
+    obj = Jhon()
+    obj.display()
+ 
+main()
+a)5(A)
+b)Error, class member x has two values
+c)3
+d)Error, protected class member can’t be accessed in a subclass
+
+54. What is the output of the following piece of code?
+
+class Adam:
+    def test1(self):
+        print(" test of Adam called ")
+class Daniel(Adam):
+    def test(self):
+        print(" test of Daniel called ")
+class Canon(Adam):
+    def test(self):
+        print(" test of Canon called ")
+class Dragon(Daniel,Canon):
+    def test2(self):
+        print(" test of Dragon called ")        
+obj=Dragon()
+obj.test()
+a)test of Daniel called
+test of Canon called
+b)test of Canon called
+test of Daniel called
+c)test of Daniel called(A)
+d)Error, both the classes from which Dragon derives has same method test()
+
+55. What is the output of the following piece of code?
+
+class Annie:
+    def test(self):
+        print("test of Annie called")
+class Bob(Annie):
+    def test(self):
+        print("test of Bob called")
+        super().test()  
+class Cathy(Annie):
+    def test(self):
+        print("test of Cathy called")
+        super().test()
+class Donaldo(Bob,Cathy):
+    def test2(self):
+        print("test of Donaldo called")      
+obj=Donaldo()
+obj.test()
+
+a)test of Bob called
+test of Cathy called
+test of Annie called(A)
+
+b)test of Cathy called
+test of Bob called
+c)test of Bob called
+test of Cathy called
+d)Error, all the three classes from which D derives has same method test()
+
+
+56.What is the output of the following code?
+
+class star:
+    def __new__(self):
+        self.__init__(self)
+        print("star's __new__() invoked")
+    def __init__(self):
+        print("star's __init__() invoked")
+class Derived_star(star):
+    def __new__(self):
+        print("Derived_star's __new__() invoked")
+    def __init__(self):
+        print("Derived_star's __init__() invoked")
+def main():
+    obj1 = Derived_star()
+    obj2 = star()
+main()
+a)
+Derived_star’s __init__() invoked
+Derived_star’s __new__() invoked
+star’s __init__() invoked
+star’s __new__() invoked
+b)
+Derived_stars’s __new__() invoked
+stars’s __init__() invoked
+stars’s __new__() invoked(Answer)
+c)
+Derived_stars’s __new__() invoked
+star’s __new__() invoked
+d)
+Derived_star’s __init__() invoked
+star’s __init__() invoked
+
+57.What is the output of the following piece of code?
+class Test:
+    def __init__(self):
+        self.x = 0
+class Derived_Test(Test):
+    def __init__(self):
+        self.y = 1
+def main():
+    b = Derived_Test()
+    print(b.x,b.y)
+main()
+
+a)0 1
+b)0 0
+c) Error because class B inherits A but variable x isn’t inherited(Answer)
+d)Error because when object is created, argument must be passed like Derived_Test(1)
+
+58. What is the output of the following piece of code?
+
+
+class star():
+    def disp(self):
+        print("star ()")
+class kumar(star):
+    pass
+obj = kumar()
+obj.disp()
+a)Invalid syntax for inheritance
+b)Error because when object is created, argument must be passed
+c)Nothing is printed
+d)star ()(Answer)
+
+59. All subclasses are a subtype in object-oriented programming. Is the statement true or false?
+a)True
+b)False(Answer)
+
+60. When defining a subclass in Python that is meant to serve as a subtype, the subtype Python keyword is used. Is the statement true or false?
+a)True
+b)False(A)
+
+61. Suppose B is a subclass of A, to invoke the __init__ method in A from B, what is the line of code you should write?
+a)A.__init__(self)(A)
+b)B.__init__(self)
+c)A.__init__(B)
+d)B.__init__(A)
+
+62. What is the output of the following piece of code?
+class Game:
+    def __init__(self):
+        self.x = 0
+class Football(Game):
+    def __init__(self):
+        Game.__init__(self)
+        self.y = 1
+def main():
+    b = Football()
+    print(b.x,b.y)
+main()
+a)Error because class B inherits A but variable x isn’t inherited
+b)0 0
+c)0 1(Answer)
+d)Error, the syntax of the invoking method is wrong
+
+
+
+63. What is the output of the following piece of code?
+
+class College:
+    def __init__(self, x= 1):
+        self.x = x
+class Branch(College):
+    def __init__(self,y = 2):
+        super().__init__()
+        self.y = y
+def main():
+    obj = Branch()
+    print(obj.x, obj.y)
+main()
+a)Error, the syntax of the invoking method is wrong
+b)The program runs fine but nothing is printed
+c)1 0
+d)1 2(A)
+
+64. What does built-in function type do in context of classes?
+a)Determines the object name of any value
+b)Determines the class name of any value(A)
+c)Determines class description of any value
+d)Determines the file name of any value
+
+65. Which of the following is not a type of inheritance?
+a)Double-level(A)
+b)Multi-level
+c)Single-level
+d)Multiple
+
+13. What does built-in function help do in context of classes?
+a)Determines the object name of any value
+b)Determines the class identifiers of any value
+c)Determines class description of any built-in type(A)
+d)Determines class description of any user-defined built-in type
+
+66. What is the output of the following piece of code?
+
+class Numbers:
+    def one(self):
+        return self.two()
+ 
+    def two(self):
+        return 'Numbers'
+ 
+class Yes(Numbers):
+    def two(self):
+        return 'Yes'
+obj1=Numbers()
+obj2=Yes()
+print(obj1.two(),obj2.two())
+a)Numbers Numbers
+b)Numbers Yes(A)
+c)Yes Yes
+d)An exception is thrown
+
+67. What type of inheritance is illustrated in the following piece of code?
+
+class A():
+    pass
+class B():
+    pass
+class C(A,B):
+    pass
+a)Multi-level inheritance
+b)Multiple inheritance(A)
+c)Hierarchical inheritance
+d)Single-level inheritance
+
+
+68.What is the output of the following code?
+
+    c.test=c.test+1
+    k=k+1
+class A:
+    def __init__(self):
+        self.test = 0
+def main():
+    Count=A()
+    k=0
+ 
+    for i in range(0,25):
+        add(Count,k)
+    print("Count.test=", Count.test)
+    print("k =", k)
+main()
+a)Exception is thrown
+b)Count.test=25
+k=25
+c)Count.test=25
+k=0(A)
+d)Count.test=0
+k=0
+
+69. Which piece of code creates an empty class?
+
+a)
+
+class A:
+    return
+b)
+
+class A:
+    pass(answer)
+c)
+
+class A:
+d)It is not possible to create an empty class.
+
+70.Is the following piece of code valid?
+
+class B(object):
+  def first(self):
+    print("First method called")
+  def second():
+    print("Second method called")
+ob = B()
+B.first(ob)
+a)It isn’t as the object declaration isn’t right
+b)It isn’t as there isn’t any __init__ method for initializing class members
+c)Yes, this method of calling is called unbounded method call(A)
+d)Yes, this method of calling is called bounded method call
+
+71. What are the methods which begin and end with two underscore characters called?
+a)Special methods(A)
+b)In-built methods
+c)User-defined methods
+d)Additional methods
+
+
+72. Special methods need to be explicitly called during object creation. True or False?
+a)True
+b)False(A)
+
+73. What is the output of the following code?
+
+>>> class star():
+	def __repr__(self):
+		return '__repr__ built-in function called'
+	def __str__(self):
+		return '__str__ built-in function called'
+>>> s=star()
+>>> s
+a)Error
+b)Nothing is printed
+c)__str__ called
+d)__repr__ called
+
+74. What is the output of the following code?
+
+>>> class oops():
+	def __repr__(self):
+		return '__repr__ built-in function called'
+	def __str__(self):
+		return '__str__  built-in function called'
+>>> s=oops()
+>>> print(s)
+a)__str__ called
+b)__repr__ called
+c)Error
+d)Nothing is printed
+
+75.What is hasattr(obj,name) used for?
+a)To access the attribute of the object
+b)To delete an attribute
+c)To check if an attribute exists or not
+d)To set an attribute
+
+76.What is the output of the following piece of code?
+
+class alex:
+   def __init__(self, roll_no, grade):
+      self.roll_no = roll_no
+      self.grade = grade
+   def display (self):
+      print("Roll no : ", self.roll_no,  ", Grade: ", self.grade)
+star1 = alex(34, ‘S’)
+star1.age=7
+print(hasattr(star1, 'age'))
+a)Error as age isn’t defined
+b)True
+c)False
+d)7
+
+77.What is delattr(obj,name) used for?
+a)To print deleted attribute
+b)To delete an attribute
+c)To check if an attribute is deleted or not
+d)To set an attribute
+
+78.__del__ method is used to destroy instances of a class. True or False?
+a)True
+b)False
+
+79.What is the output of the following piece of code?
+
+class stud:
+   ‘Base class for all students’
+   def __init__(self, roll_no, grade):
+      self.roll_no = roll_no
+      self.grade = grade
+   def display (self):
+      print("Roll no : ", self.roll_no,  ", Grade: ", self.grade)
+print(student.__doc__)
+a)Exception is thrown
+b)__main__
+c)Nothing is displayed
+d)Base class for all students
+
+80.What does print(Test.__name__) display (assuming Test is the name of the class) ?
+a)()
+b)Exception is thrown
+c)Test
+d)__main__
+
+
+
+81._____ represents an entity in the real world with its identity and behaviour.
+a)A method
+b)An object
+c)A class
+d)An operator
+
+82._____ is used to create an object.
+a)class
+b)constructor
+c)User-defined functions
+d)In-built functions
+______________________________________________________________
+83.What is the output of the following code?
+
+class test:
+     def __init__(self,a="Hello Dude"):
+         self.a=a
+ 
+     def display(self):
+         print(self.a)
+obj=test()
+obj.display()
+a)The program has an error because constructor can’t have default arguments
+b)Nothing is displayed
+c)“Hello Dude” is displayed
+d)The program has an error display function doesn’t have parameters
+
+84.What is setattr() used for?
+a)To access the attribute of the object
+b)To set an attribute
+c)To check if an attribute exists or not
+d)To delete an attribute
+
+85.What is getattr() used for?
+a)To access the attribute of the object
+b)To delete an attribute
+c)To check if an attribute exists or not
+d)To set an attribute
+
+86. What is the output of the following code?
+
+class change:
+    def __init__(self, x, y, z):
+        self.a = x + y + z
+ 
+x = change(1,2,3)
+y = getattr(x, 'a')
+setattr(x, 'a', y+1)
+print(x.a)
+a)6
+b)7
+c)Error
+d)0
+
+87.What is the output of the following code?
+
+ class test:
+     def __init__(self,a):
+         self.a=a
+ 
+     def display(self):
+         print(self.a)
+obj=test()
+obj.display()
+a)Runs normally, doesn’t display anything
+b)Displays 0, which is the automatic default value
+c)Error as one argument is required while creating the object
+d)Error as display function requires additional argument
+______________________________________________________________
+88. Is the following piece of code correct?
+
+>>> class A:
+	def __init__(self,b):
+		self.b=b
+	def display(self):
+		print(self.b)
+>>> obj=A("useless")
+>>> del obj
+a)True
+b)False
+_____________________________________________________________________
+89.What is the output of the following code?
+class test:
+    def __init__(self):
+        self.variable = 'star'
+        self.Change(self.variable)
+    def Change(self, var):
+        var = 'New'
+obj=test()
+print(obj.variable)
+a)Error because function change can’t be called in the __init__ function
+b)‘New’ is printed
+c)‘star’ is printed
+d)Nothing is printed
+______________________________________________________________
+90. What is Instantiation in terms of OOP terminology?
+a)Deleting an instance of class
+b)Modifying an instance of class
+c)Copying an instance of class
+d)Creating an instance of class
+_________________________________________________________________
+91. What is the output of the following code?
+
+class fruits:
+    def __init__(self, price):
+        self.price = price
+obj=fruits(50)
+obj.quantity=10
+obj.bags=2
+print(obj.quantity+len(obj.__dict__))
+a)12
+b)52
+c)13(A)
+d)60
+______________________________________________________________________
+92. What is the output of the following code?
+
+ class star:
+    def __init__(self):
+        pass
+ 
+    def test(self):
+        print(__name__)
+ 
+obj = star()
+obj.test()
+a)Exception is thrown
+b)__main__
+c)Demo
+d)test
+
+_____________________________________________________________________
+93.Which function is called when the following code is executed?
+
+f = star()
+format(f)
+a) format()
+b) __format__()
+c) str()
+d) __str__()
+__________________________________________________________________________
+94. Which of the following will print True?
+
+a = star(2)
+b = star(3)
+print(a < b)
+
+a)
+
+class star:
+    def __init__(self, x):
+        self.x = x
+    def __lt__(self, other):
+        if self.x < other.x:
+            return False
+        else:
+            return True
+b)
+
+class star:
+    def __init__(self, x):
+        self.x = x
+    def __less__(self, other):
+        if self.x > other.x:
+            return False
+        else:
+            return True
+c)
+
+class star:
+    def __init__(self, x):
+        self.x = x
+    def __lt__(self, other):
+        if self.x < other.x:
+            return True
+        else:
+            return False
+d)
+
+
+class star:
+    def __init__(self, x):
+        self.x = x
+    def __less__(self, other):
+        if self.x < other.x:
+            return False
+        else:
+            return True
+___________________________________________________________________
+95. Which function overloads the + operator?
+a) __add__()
+b) __plus__()
+c) __sum__()
+d) none of the mentioned
+
+
+96. Which operator is overloaded by __invert__()?
+a) !
+b) ~
+c) ^
+d) –
+
+
+97. Which function overloads the == operator?
+a) __eq__()
+b) __equ__()
+c) __isequal__()
+d) none of the mentioned
+
+
+98. Which operator is overloaded by __lg__()?
+a) <
+b) >
+c) !=
+d) none of the mentioned
+
+
+99. Which function overloads the >> operator?
+a) __more__()
+b) __gt__()
+c) __ge__()
+d) none of the mentioned
+
+100. Let A and B be objects of class star. Which functions are called when
+ print(A + B) is executed?
+a) __add__()
+b) __str__()
+c) __sum__()
+d) __str__()
+
+101. Which operator is overloaded by the __or__() function?
+a) ||
+b) |
+c) //
+d) /
+100 mcqs.py
+Displaying 100 mcqs.py.
